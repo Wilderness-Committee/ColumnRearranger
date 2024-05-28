@@ -5,7 +5,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/columnrearranger",
+  basePath: "/columnrearranger/",
   output: "export", // <=== enables static exports
   reactStrictMode: true,
 };
