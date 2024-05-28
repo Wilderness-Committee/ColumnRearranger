@@ -44,7 +44,6 @@
   "AQ": "Contact.CanadaHelps Recurring Gift Status",
   "AR": "Contact.Last CH Recurring Gift Date",
   "AS": "Contact.Last CH Recurring Gift Amount",
-//   "WAITING": "Contact.Trailblazer Status",
   "AT": "Household.Total Trailblazer Gifts Last 90 Days",
   "AU": "Contact.Active TBZ Amount",
   "AV": "Household.First Trailblazer Gift Date",
@@ -63,5 +62,6 @@
   "BI": "Household.Formal Greeting",
   "BJ": "Household.Household Members Summary",
   "BK": "Household.Informal Greeting",
-  "BL": "Contact.Email"
+  "BL": "Contact.Email",
+  "BM": "Contact.Trailblazer Status"
 }
