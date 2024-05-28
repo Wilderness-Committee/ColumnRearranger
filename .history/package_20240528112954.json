@@ -4,8 +4,6 @@
   "homepage": "https://wilderness-committee.github.io/ColumnRearranger/",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d .next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

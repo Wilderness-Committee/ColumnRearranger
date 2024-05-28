@@ -4,8 +4,8 @@ import ColumnRearranger from "./components/ColumnRearranger";
 
 export default function Home() {
   return (
-    <main className="flex flex-grow items-center justify-center w-full">
-      <ColumnRearranger />
+    <main className="flex-1 items-center justify-between p-24">
+          <ColumnRearranger />
     </main>
   );
 }

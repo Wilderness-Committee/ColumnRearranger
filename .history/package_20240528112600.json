@@ -1,11 +1,9 @@
 {
   "name": "reorder-tool",
   "version": "0.1.0",
-  "homepage": "https://wilderness-committee.github.io/ColumnRearranger/",
+  "homepage": "https://{username}.github.io/{repo-name}",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d .next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
