@@ -5,7 +5,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/reorder-tool",
+  basePath: "/",
   output: "export", // <=== enables static exports
   reactStrictMode: true,
 };
