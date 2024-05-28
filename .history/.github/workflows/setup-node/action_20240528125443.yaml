@@ -24,7 +24,7 @@
 name: setup-node
 description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
 runs:
-  using: "composite"
+  using: "node20"
   steps:
     - name: Setup Node.js ⚙️
       uses: actions/setup-node@v4
