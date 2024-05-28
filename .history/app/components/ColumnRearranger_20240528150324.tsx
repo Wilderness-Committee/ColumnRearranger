@@ -9,74 +9,6 @@ const ColumnRearranger: React.FC = () => {
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const integratedOrder = {
-    A: "Campaign.Campaign ID",
-    B: "Campaign",
-    C: "Campaign Member ID",
-    D: "Status",
-    E: "Contact.CRM Id",
-    F: "Contact.Deceased",
-    G: "Contact.Do Not Contact",
-    H: "Household.Mail Preferences",
-    I: "Household.Donor Portfolio",
-    J: "Contact.Primary Affiliation",
-    K: "Primary Affiliation: ID",
-    L: "Contact.Date of Last DAF Payment",
-    M: "Contact.Amount1",
-    N: "Contact.Amount2",
-    O: "Contact.Amount3",
-    P: "Contact.HA1",
-    Q: "Contact.HA2",
-    R: "Contact.HA3",
-    S: "Contact.Largest Gift",
-    T: "Contact.Largest Soft Credit Amount",
-    U: "Household.Number of Gifts Last Year",
-    V: "Household.Number of Gifts This Year",
-    W: "Household.Number of OTGs Last Year",
-    X: "Household.Number of OTGs This Year",
-    Y: "Household.Total Contributions",
-    Z: "Household.Total Gifts",
-    AA: "Household.Total Gifts Last Year",
-    AB: "Household.Total Gifts This Year",
-    AC: "Household.Total OTGs Last Year",
-    AD: "Household.Total OTGs This Year",
-    AE: "Household.Largest Gift",
-    AF: "Household.Last Gift Amount",
-    AG: "Household.Last Gift Date",
-    AH: "Household.Prior Gift Date",
-    AI: "Contact.Last Gift Amount",
-    AJ: "Contact.Last Gift Date",
-    AK: "Contact.Sustainer",
-    AL: "Contact.Last Trailblazer Gift Date",
-    AM: "Contact.NPSP Active TBZ Value",
-    AN: "Household.Last Trailblazer Gift Date",
-    AO: "Contact.First Trailblazer Gift Date",
-    AP: "Household.NPSP Active TBZ Value",
-    AQ: "Contact.CanadaHelps Recurring Gift Status",
-    AR: "Contact.Last CH Recurring Gift Date",
-    AS: "Contact.Last CH Recurring Gift Amount",
-    AT: "Household.Total Trailblazer Gifts Last 90 Days",
-    AU: "Contact.Active TBZ Amount",
-    AV: "Household.First Trailblazer Gift Date",
-    AW: "Contact.TBZ1",
-    AX: "Contact.TBZ2",
-    AY: "Contact.TBZ3",
-    AZ: "Household.Created Date",
-    BA: "Household.First Activity Date",
-    BB: "Household.Account Casesafe Id",
-    BC: "Household.Billing City",
-    BD: "Household.Billing Country",
-    BE: "Household.Billing State/Province",
-    BF: "Household.Billing State/Province Code",
-    BG: "Household.Billing Street",
-    BH: "Household.Billing Zip/Postal Code",
-    BI: "Household.Formal Greeting",
-    BJ: "Household.Household Members Summary",
-    BK: "Household.Informal Greeting",
-    BL: "Contact.Email",
-    BM: "Contact.Trailblazer Status",
-  };
-
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -94,19 +26,27 @@ const ColumnRearranger: React.FC = () => {
   };
 
   const rearrangeColumns = (data: any[]) => {
-    const newOrder = Object.values(integratedOrder) as string[];
-    const rearranged = data.map((row) => {
-      const newRow: { [key: string]: any } = {};
-      newOrder.forEach((col) => {
-        if (row.hasOwnProperty(col)) {
-          newRow[col] = row[col];
-        }
+    fetch("../../fieldset_order.json")
+      .then((response) => response.json())
+      .then((order) => {
+        const newOrder = Object.values(order) as string[];
+        const rearranged = data.map((row) => {
+          const newRow: { [key: string]: any } = {};
+          newOrder.forEach((col) => {
+            if (row.hasOwnProperty(col)) {
+              newRow[col] = row[col];
+            }
+          });
+          return newRow;
+        });
+        const cleanedData = cleanColumnHeaders(rearranged);
+        setRearrangedData(cleanedData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error loading JSON:", error);
+        setLoading(false);
       });
-      return newRow;
-    });
-    const cleanedData = cleanColumnHeaders(rearranged);
-    setRearrangedData(cleanedData);
-    setLoading(false);
   };
 
   const cleanColumnHeaders = (data: any[]) => {
@@ -189,3 +129,5 @@ const ColumnRearranger: React.FC = () => {
 };
 
 export default ColumnRearranger;
+
+Dataset
