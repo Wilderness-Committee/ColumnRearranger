@@ -1,7 +1,7 @@
 {
   "name": "reorder-tool",
   "version": "0.1.0",
-  "homepage": "https://wilderness-committee.github.io/columnrearranger",
+  "homepage": "https://wild.github.io/gh-pages",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
