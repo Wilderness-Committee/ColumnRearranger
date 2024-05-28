@@ -26,7 +26,7 @@ const ColumnRearranger: React.FC = () => {
   };
 
   const rearrangeColumns = (data: any[]) => {
-    fetch("../../fieldset_order.json")
+    fetch("../")
       .then((response) => response.json())
       .then((order) => {
         const newOrder = Object.values(order) as string[];
